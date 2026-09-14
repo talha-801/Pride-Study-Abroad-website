@@ -44,7 +44,7 @@ function toggleOtherCountryField() {
 function handleFormSubmit(event, formType) {
   event.preventDefault();
   
-  // Destination WhatsApp number updated
+  // All inquiry forms route to +92 328 6174491
   const whatsappNumber = "923286174491"; 
   let message = "";
 
@@ -81,7 +81,7 @@ function handleFormSubmit(event, formType) {
     const notes = document.getElementById('b2b-message').value.trim() || 'No specific notes provided';
 
     message = `*New B2B Partnership Inquiry - Pride Study Abroad*%0A%0A` +
-              `*Agency / College:* ${encodeURIComponent(company)}%0A` +
+              `*Agency / College / Referral:* ${encodeURIComponent(company)}%0A` +
               `*Contact Person:* ${encodeURIComponent(name)}%0A` +
               `*WhatsApp/Phone:* ${encodeURIComponent(phone)}%0A` +
               `*Email:* ${encodeURIComponent(email)}%0A` +

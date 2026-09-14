@@ -147,7 +147,7 @@ header {
   letter-spacing: 0.5px;
 }
 
-/* --- 1. Hero Section with Moving Local Slideshow --- */
+/* --- 1. Hero Section: High Clarity, Bright & Sharp Scenery --- */
 .hero-section {
   position: relative;
   min-height: 86vh;
@@ -155,7 +155,7 @@ header {
   align-items: center;
   padding: 70px 0;
   overflow: hidden;
-  background-color: #0b132b;
+  background-color: #ffffff;
 }
 
 /* Slideshow Container */
@@ -172,28 +172,29 @@ header {
   background-position: center;
   opacity: 0;
   transform: scale(1);
+  /* Razor-sharp image rendering: bright, crisp & clear with zero blur */
+  filter: brightness(1.05) contrast(1.1) saturate(1.15);
   animation: heroKenBurns 25s infinite ease-in-out;
 }
 
-/* Cycle Through 5 of your local folder images smoothly */
 .slide-1 {
-  background-image: url('Germany image.jpg');
+  background-image: url('New zeland.jpeg');
   animation-delay: 0s;
 }
 .slide-2 {
-  background-image: url('Sweden image.jpg');
+  background-image: url('Germany image.jpg');
   animation-delay: 5s;
 }
 .slide-3 {
-  background-image: url('France image.jpg');
+  background-image: url('Sweden image.jpg');
   animation-delay: 10s;
 }
 .slide-4 {
-  background-image: url('Australia image.jpeg');
+  background-image: url('France image.jpg');
   animation-delay: 15s;
 }
 .slide-5 {
-  background-image: url('New zeland.jpeg');
+  background-image: url('Australia image.jpeg');
   animation-delay: 20s;
 }
 
@@ -210,7 +211,7 @@ header {
   }
   28% {
     opacity: 0;
-    transform: scale(1.08);
+    transform: scale(1.03);
   }
   100% {
     opacity: 0;
@@ -218,27 +219,32 @@ header {
   }
 }
 
+/* Minimal tint so the scenery behind the text box is fully visible */
 .hero-overlay {
   position: absolute;
   inset: 0;
   z-index: 2;
-  background: linear-gradient(135deg, rgba(76, 5, 25, 0.55), rgba(15, 23, 42, 0.72));
+  background: rgba(0, 0, 0, 0.08);
 }
+
 .hero-container {
   position: relative;
   z-index: 3;
   display: flex;
   justify-content: center;
 }
+
 .hero-glass-card {
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(14px);
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(8px);
   max-width: 660px;
   padding: 45px;
   border-radius: 24px;
   text-align: center;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.28);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.28);
 }
+
 .hero-badge {
   display: inline-block;
   font-size: 0.75rem;
@@ -723,7 +729,7 @@ header {
   width: 100%;
 }
 
-/* --- 7. Dual Interactive Inquiry Hub with Textarea & Inputs --- */
+/* --- 7. Dual Interactive Inquiry Hub --- */
 .inquiry-section {
   padding: 90px 0;
   background: #f1f5f9;
@@ -1060,7 +1066,7 @@ footer {
 
 /* Responsive adjustments */
 @media (max-width: 900px) {
-  .nav-links, .nav-btn-wa { display: none; }
+  .nav-links, .nav-btn-wa, .ticker-container { display: none; }
   .about-grid, .guidance-grid, .b2b-grid, .offices-grid, .footer-content, .footer-bottom-content {
     grid-template-columns: 1fr;
     text-align: center;
