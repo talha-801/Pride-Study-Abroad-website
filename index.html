@@ -30,21 +30,33 @@
     </div>
   </div>
 
-  <!-- Header / Navigation Bar -->
+  <!-- Header / Navigation Bar with Mobile Hamburger -->
   <header>
     <div class="container navbar">
       <a href="#home" class="logo">
         <img src="Psa logo.png" alt="Pride Study Abroad Logo" class="brand-logo-img" />
       </a>
-      <ul class="nav-links">
-        <li><a href="#home" class="active">HOME</a></li>
-        <li><a href="#about">ABOUT</a></li>
-        <li><a href="#destinations">DESTINATIONS</a></li>
-        <li><a href="#guidance">OUR GUIDANCE</a></li>
-        <li><a href="#b2b">B2B PARTNERSHIP</a></li>
-        <li><a href="#contact">OFFICES</a></li>
+
+      <!-- Hamburger button for mobile devices -->
+      <button class="menu-toggle" id="mobile-menu-btn" aria-label="Toggle navigation menu">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+
+      <ul class="nav-links" id="nav-menu">
+        <li><a href="#home" class="nav-link-item active">HOME</a></li>
+        <li><a href="#about" class="nav-link-item">ABOUT</a></li>
+        <li><a href="#destinations" class="nav-link-item">DESTINATIONS</a></li>
+        <li><a href="#guidance" class="nav-link-item">OUR GUIDANCE</a></li>
+        <li><a href="#b2b" class="nav-link-item">B2B PARTNERSHIP</a></li>
+        <li><a href="#contact" class="nav-link-item">OFFICES</a></li>
+        <li class="mobile-cta-item">
+          <a href="https://wa.me/923286174491?text=Hello%20Pride%20Study%20Abroad,%20I%20want%20to%20apply" target="_blank" class="nav-btn-wa">
+            <i class="fa-solid fa-paper-plane"></i> Apply Online
+          </a>
+        </li>
       </ul>
-      <a href="https://wa.me/923286174491?text=Hello%20Pride%20Study%20Abroad,%20I%20want%20to%20apply" target="_blank" class="nav-btn-wa">
+
+      <a href="https://wa.me/923286174491?text=Hello%20Pride%20Study%20Abroad,%20I%20want%20to%20apply" target="_blank" class="nav-btn-wa desktop-cta">
         <i class="fa-solid fa-paper-plane"></i> Apply Online
       </a>
     </div>
@@ -119,7 +131,7 @@
     </div>
   </section>
 
-  <!-- 3. Top Destinations (Infinitely Moving Slow Carousel) -->
+  <!-- 3. Top Destinations (Infinitely Moving Carousel) -->
   <section class="destinations-section" id="destinations">
     <div class="container">
       <div class="section-header">
@@ -265,7 +277,7 @@
           </div>
         </div>
 
-        <!-- DUPLICATE SET FOR SEAMLESS LOOP -->
+        <!-- DUPLICATE SET FOR SMOOTH LOOP -->
         <div class="dest-card">
           <div class="dest-img-wrap"><img src="Sweden image.jpg" onerror="this.onerror=null;this.src='Sweden image.jpeg';" alt="Study in Sweden" /></div>
           <div class="dest-body">
@@ -392,7 +404,7 @@
           <p>
             Avoid costly visa refusals or non-accredited colleges. Pride Study Abroad assigns experienced regional counselors to oversee every step of your application portfolio.
           </p>
-          <a href="#inquiry-hub" class="btn-primary" style="margin-top: 15px;">Book Free Assessment</a>
+          <a href="#inquiry-hub" class="btn-primary guidance-btn">Book Free Assessment</a>
         </div>
 
         <div class="services-cards-grid">

@@ -1,3 +1,33 @@
+// Toggle mobile hamburger navigation
+const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+const navMenu = document.getElementById('nav-menu');
+
+if (mobileMenuBtn && navMenu) {
+  mobileMenuBtn.addEventListener('click', () => {
+    navMenu.classList.toggle('nav-open');
+    const icon = mobileMenuBtn.querySelector('i');
+    if (navMenu.classList.contains('nav-open')) {
+      icon.classList.remove('fa-bars');
+      icon.classList.add('fa-xmark');
+    } else {
+      icon.classList.remove('fa-xmark');
+      icon.classList.add('fa-bars');
+    }
+  });
+
+  // Automatically close mobile menu when a navigation link is tapped
+  document.querySelectorAll('.nav-link-item').forEach((link) => {
+    link.addEventListener('click', () => {
+      navMenu.classList.remove('nav-open');
+      const icon = mobileMenuBtn.querySelector('i');
+      if (icon) {
+        icon.classList.remove('fa-xmark');
+        icon.classList.add('fa-bars');
+      }
+    });
+  });
+}
+
 // Toggle between Student and B2B inquiry forms
 function switchForm(type) {
   const studentForm = document.getElementById('student-form');
