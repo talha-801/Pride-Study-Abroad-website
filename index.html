@@ -135,10 +135,14 @@
           </div>
         </div>
 
-        <!-- CEO Statement Box (Full Image Display, No Cropping) -->
+        <!-- CEO Statement Box with Bulletproof Fallback Logic -->
         <div class="ceo-compact-card">
           <div class="ceo-compact-img-wrap">
-            <img src="Ceo%20comment.jpg" onerror="this.onerror=null;this.src='Ceo comment.jpg';this.src='Ceo%20comment.png';" alt="Ahsan Nazeer - CEO & Founder of Pride Study Abroad" />
+            <img 
+              src="Ceo comment.jpg" 
+              onerror="this.onerror=null; this.src='Ceo comment.png'; this.onerror=function(){this.src='Ceo comment.jpeg'; this.onerror=function(){this.src='Ceo%20comment.jpg';};};" 
+              alt="Ahsan Nazeer - CEO & Founder of Pride Study Abroad" 
+            />
           </div>
           <div class="ceo-compact-content">
             <div class="ceo-meta-box">
@@ -798,7 +802,7 @@
     </div>
   </section>
 
-  <!-- 7. Regional Consultation Offices (Modern Executive Card Design) -->
+  <!-- 7. Regional Consultation Offices (Balanced Timings & Channels) -->
   <section class="contact-section" id="contact">
     <div class="container">
       <div class="section-header">
@@ -819,6 +823,16 @@
           </div>
 
           <div class="office-channels-list">
+            <!-- Timings -->
+            <div class="channel-item timing-item">
+              <div class="channel-icon"><i class="fa-regular fa-clock"></i></div>
+              <div class="channel-details">
+                <span class="channel-label">Visiting & Consultation Hours</span>
+                <span class="channel-val">Mon - Sat: 9:00 AM - 6:00 PM</span>
+              </div>
+              <span class="channel-tag">Walk-in</span>
+            </div>
+
             <!-- Landline Quick Action -->
             <a href="tel:0622301721" class="channel-item landline-item" title="Call Landline Desk">
               <div class="channel-icon"><i class="fa-solid fa-phone-volume"></i></div>
@@ -843,7 +857,7 @@
             <a href="mailto:info@pridestudyabroad.com" class="channel-item email-item" title="Send Official Email">
               <div class="channel-icon"><i class="fa-regular fa-envelope"></i></div>
               <div class="channel-details">
-                <span class="channel-label">Central Correspondence Desk</span>
+                <span class="channel-label">Central Correspondence</span>
                 <span class="channel-val">info@pridestudyabroad.com</span>
               </div>
               <span class="channel-tag">Email Us</span>
@@ -868,14 +882,24 @@
           </div>
 
           <div class="office-channels-list">
-            <!-- Direct Consultation Desk -->
-            <div class="channel-item walkin-item">
-              <div class="channel-icon"><i class="fa-solid fa-user-tie"></i></div>
+            <!-- Timings -->
+            <div class="channel-item timing-item">
+              <div class="channel-icon"><i class="fa-regular fa-clock"></i></div>
               <div class="channel-details">
-                <span class="channel-label">In-Person Counseling Desk</span>
+                <span class="channel-label">Visiting & Consultation Hours</span>
                 <span class="channel-val">Mon - Sat: 9:00 AM - 6:00 PM</span>
               </div>
               <span class="channel-tag">Walk-in</span>
+            </div>
+
+            <!-- Regional Advisory Desk -->
+            <div class="channel-item desk-item">
+              <div class="channel-icon"><i class="fa-solid fa-user-tie"></i></div>
+              <div class="channel-details">
+                <span class="channel-label">Branch Advisory Desk</span>
+                <span class="channel-val">D Ground Counseling Team</span>
+              </div>
+              <span class="channel-tag">Regional</span>
             </div>
 
             <!-- WhatsApp Direct Action -->
@@ -892,7 +916,7 @@
             <a href="mailto:info@pridestudyabroad.com" class="channel-item email-item" title="Send Official Email">
               <div class="channel-icon"><i class="fa-regular fa-envelope"></i></div>
               <div class="channel-details">
-                <span class="channel-label">Central Correspondence Desk</span>
+                <span class="channel-label">Central Correspondence</span>
                 <span class="channel-val">info@pridestudyabroad.com</span>
               </div>
               <span class="channel-tag">Email Us</span>

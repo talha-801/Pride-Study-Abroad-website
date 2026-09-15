@@ -393,7 +393,7 @@ header {
   color: var(--brand-burgundy-dark);
 }
 
-/* CEO Compact Box */
+/* CEO Compact Box: Complete Full Image Display (No Text Cropped) */
 .ceo-compact-card {
   background: #ffffff;
   border: 2px solid var(--brand-rose-border);
@@ -405,17 +405,18 @@ header {
 }
 .ceo-compact-img-wrap {
   width: 100%;
+  min-height: 240px;
   background: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 10px;
+  padding: 12px;
   border-bottom: 1px solid var(--border-color);
 }
 .ceo-compact-img-wrap img {
   width: 100%;
   height: auto;
-  max-height: 380px;
+  max-height: 390px;
   object-fit: contain;
   border-radius: 8px;
   display: block;
@@ -720,7 +721,7 @@ header {
   color: var(--text-dark);
 }
 
-/* --- 4. Google Reviews & Separate Branch Links Section --- */
+/* --- 4. Google Reviews Section --- */
 .reviews-section {
   padding: 95px 0;
   background-color: var(--white);
@@ -1242,9 +1243,19 @@ header {
   flex-shrink: 0;
 }
 
+.timing-item .channel-icon {
+  background: #fef3c7;
+  color: #b45309;
+}
+
 .landline-item .channel-icon {
   background: #eff6ff;
   color: #2563eb;
+}
+
+.desk-item .channel-icon {
+  background: #f1f5f9;
+  color: #475569;
 }
 
 .wa-item {
@@ -1260,11 +1271,6 @@ header {
 .email-item .channel-icon {
   background: var(--brand-light-rose);
   color: var(--brand-burgundy);
-}
-
-.walkin-item .channel-icon {
-  background: #f1f5f9;
-  color: #475569;
 }
 
 .channel-details {
@@ -1480,7 +1486,7 @@ footer {
 }
 
 /* =========================================================
-   RESPONSIVE MEDIA QUERIES
+   RESPONSIVE MEDIA QUERIES & MOBILE PERFECTION
    ========================================================= */
 @media (max-width: 992px) {
   .menu-toggle { display: block; }
@@ -1551,4 +1557,33 @@ footer {
   .reviews-grid { grid-template-columns: 1fr; }
   .dest-card { width: 290px; }
   .footer-bottom-content { flex-direction: column; text-align: center; gap: 12px; }
+}
+
+/* Ultra-Mobile Polishes (< 420px) */
+@media (max-width: 420px) {
+  .channel-val {
+    font-size: 0.82rem;
+    word-break: break-word;
+  }
+  
+  .channel-item {
+    padding: 10px 12px;
+    gap: 10px;
+  }
+
+  .channel-tag {
+    display: none;
+  }
+
+  .roadmap-steps-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-glass-card {
+    padding: 24px 14px;
+  }
+
+  .hero-glass-card h1 {
+    font-size: 1.85rem;
+  }
 }
