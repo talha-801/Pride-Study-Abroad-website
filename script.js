@@ -70,7 +70,7 @@ function toggleOtherCountryField() {
   }
 }
 
-// WhatsApp Submission exclusively routed to: 92 301 8686154
+// WhatsApp Submission
 function handleFormSubmit(event, formType) {
   event.preventDefault();
   const whatsappNumber = "923018686154";
@@ -123,52 +123,28 @@ function handleFormSubmit(event, formType) {
   window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank');
 }
 
-// Smooth scroll & Dynamic Active Tab Highlight on Scroll
+// Navigation Active State Highlighter (Clean, non-intrusive scroll listener)
 document.addEventListener('DOMContentLoaded', () => {
-  // Smooth scroll
-  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-    anchor.addEventListener('click', function (e) {
-      const targetId = this.getAttribute('href');
-      if (targetId === '#') return;
-
-      const targetElement = document.querySelector(targetId);
-      if (targetElement) {
-        e.preventDefault();
-        const headerOffset = 74;
-        const elementPosition = targetElement.getBoundingClientRect().top;
-        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: 'smooth'
-        });
-      }
-    });
-  });
-
-  // Dynamic Scroll Active Tab Highlight
   const sections = document.querySelectorAll('section[id]');
   const navLinks = document.querySelectorAll('.nav-links a.nav-link-item');
 
-  function updateActiveNav() {
-    const scrollPos = window.scrollY + 130;
+  window.addEventListener('scroll', () => {
+    let current = '';
+    const scrollPos = window.pageYOffset + 150;
 
     sections.forEach((section) => {
-      const top = section.offsetTop;
-      const height = section.offsetHeight;
-      const id = section.getAttribute('id');
-
-      if (scrollPos >= top && scrollPos < top + height) {
-        navLinks.forEach((link) => {
-          link.classList.remove('active');
-          if (link.getAttribute('href') === `#${id}`) {
-            link.classList.add('active');
-          }
-        });
+      const sectionTop = section.offsetTop;
+      const sectionHeight = section.offsetHeight;
+      if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+        current = section.getAttribute('id');
       }
     });
-  }
 
-  window.addEventListener('scroll', updateActiveNav);
-  updateActiveNav();
+    navLinks.forEach((link) => {
+      link.classList.remove('active');
+      if (link.getAttribute('href') === `#${current}`) {
+        link.classList.add('active');
+      }
+    });
+  });
 });
