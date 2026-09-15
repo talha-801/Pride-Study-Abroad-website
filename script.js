@@ -1,4 +1,4 @@
-// Toggle mobile hamburger navigation
+// Mobile menu toggle
 const mobileMenuBtn = document.getElementById('mobile-menu-btn');
 const navMenu = document.getElementById('nav-menu');
 
@@ -15,8 +15,8 @@ if (mobileMenuBtn && navMenu) {
     }
   });
 
-  // Automatically close mobile menu when a navigation link is tapped
-  document.querySelectorAll('.nav-link-item').forEach((link) => {
+  // Automatically close menu when an item is tapped
+  document.querySelectorAll('#nav-menu a').forEach((link) => {
     link.addEventListener('click', () => {
       navMenu.classList.remove('nav-open');
       const icon = mobileMenuBtn.querySelector('i');
@@ -28,7 +28,7 @@ if (mobileMenuBtn && navMenu) {
   });
 }
 
-// Toggle between Student and B2B inquiry forms
+// Switch between Student and B2B forms
 function switchForm(type) {
   const studentForm = document.getElementById('student-form');
   const b2bForm = document.getElementById('b2b-form');
@@ -54,7 +54,7 @@ function switchForm(type) {
   }
 }
 
-// Show/Hide Custom Country field if "Other" is selected
+// Custom Country text input toggle
 function toggleOtherCountryField() {
   const select = document.getElementById('stu-country');
   const otherContainer = document.getElementById('other-country-container');
@@ -70,12 +70,10 @@ function toggleOtherCountryField() {
   }
 }
 
-// Format and send form inquiries directly to WhatsApp: +92 328 6174491
+// WhatsApp Submission exclusively routed to: 92 301 8686154
 function handleFormSubmit(event, formType) {
   event.preventDefault();
-  
-  // All inquiry forms route to +92 328 6174491
-  const whatsappNumber = "923286174491"; 
+  const whatsappNumber = "923018686154";
   let message = "";
 
   if (formType === 'student') {
@@ -100,7 +98,8 @@ function handleFormSubmit(event, formType) {
               `*Target Country:* ${encodeURIComponent(country)}%0A` +
               `*Qualification:* ${encodeURIComponent(qual)}%0A` +
               `*English Proficiency:* ${encodeURIComponent(test)}%0A` +
-              `*Candidate Notes:* ${encodeURIComponent(notes)}`;
+              `*Candidate Notes:* ${encodeURIComponent(notes)}%0A%0A` +
+              `*Direct Email:* info@pridestudyabroad.com`;
   } else if (formType === 'b2b') {
     const company = document.getElementById('b2b-company').value.trim();
     const name = document.getElementById('b2b-name').value.trim();
@@ -111,21 +110,22 @@ function handleFormSubmit(event, formType) {
     const notes = document.getElementById('b2b-message').value.trim() || 'No specific notes provided';
 
     message = `*New B2B Partnership Inquiry - Pride Study Abroad*%0A%0A` +
-              `*Agency / College / Referral:* ${encodeURIComponent(company)}%0A` +
+              `*Agency / Partner:* ${encodeURIComponent(company)}%0A` +
               `*Contact Person:* ${encodeURIComponent(name)}%0A` +
               `*WhatsApp/Phone:* ${encodeURIComponent(phone)}%0A` +
               `*Email:* ${encodeURIComponent(email)}%0A` +
               `*Partnership Type:* ${encodeURIComponent(type)}%0A` +
               `*Expected Student Cohort:* ${encodeURIComponent(volume)}%0A` +
-              `*Proposal Notes:* ${encodeURIComponent(notes)}`;
+              `*Proposal Notes:* ${encodeURIComponent(notes)}%0A%0A` +
+              `*Direct Email:* info@pridestudyabroad.com`;
   }
 
-  // Open WhatsApp chat directly with +92 328 6174491
   window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank');
 }
 
-// Smooth scroll support & navigation active state highlighting
+// Smooth scroll & Dynamic Active Tab Highlight on Scroll
 document.addEventListener('DOMContentLoaded', () => {
+  // Smooth scroll
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     anchor.addEventListener('click', function (e) {
       const targetId = this.getAttribute('href');
@@ -134,30 +134,41 @@ document.addEventListener('DOMContentLoaded', () => {
       const targetElement = document.querySelector(targetId);
       if (targetElement) {
         e.preventDefault();
-        targetElement.scrollIntoView({
-          behavior: 'smooth',
-          block: 'start'
+        const headerOffset = 74;
+        const elementPosition = targetElement.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
         });
       }
     });
   });
 
+  // Dynamic Scroll Active Tab Highlight
   const sections = document.querySelectorAll('section[id]');
-  window.addEventListener('scroll', () => {
-    const scrollY = window.pageYOffset;
-    sections.forEach((current) => {
-      const sectionHeight = current.offsetHeight;
-      const sectionTop = current.offsetTop - 110;
-      const sectionId = current.getAttribute('id');
-      const navItem = document.querySelector(`.nav-links a[href*="${sectionId}"]`);
+  const navLinks = document.querySelectorAll('.nav-links a.nav-link-item');
 
-      if (navItem) {
-        if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-          navItem.classList.add('active');
-        } else {
-          navItem.classList.remove('active');
-        }
+  function updateActiveNav() {
+    const scrollPos = window.scrollY + 130;
+
+    sections.forEach((section) => {
+      const top = section.offsetTop;
+      const height = section.offsetHeight;
+      const id = section.getAttribute('id');
+
+      if (scrollPos >= top && scrollPos < top + height) {
+        navLinks.forEach((link) => {
+          link.classList.remove('active');
+          if (link.getAttribute('href') === `#${id}`) {
+            link.classList.add('active');
+          }
+        });
       }
     });
-  });
+  }
+
+  window.addEventListener('scroll', updateActiveNav);
+  updateActiveNav();
 });
